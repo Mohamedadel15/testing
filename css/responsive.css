@@ -1,0 +1,165 @@
+/*  in this style file i will  put all code about the animation and responsive screen codes */
+
+
+/*  animation shape  */
+
+/* animation  for div  */
+.animation-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px;
+    margin: 60px 0;
+  }
+  
+  .animation-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid #45a29e;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: pulse 2s ease-in-out infinite;
+    transition: transform 0.2s ease-in-out;
+    animation-name: skew;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform: scale(1.2);
+  }
+  
+  .animation-container::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid #45a29e;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: pulse 2s ease-in-out infinite alternate;
+    transition: transform 0.2s ease-in-out;
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform: rotate(360deg);
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes skew {
+    0% {
+      transform: skewX(0);
+    }
+    25% {
+      transform: skewX(-10deg);
+    }
+    50% {
+      transform: skewX(0);
+    }
+    75% {
+      transform: skewX(10deg);
+    }
+    100% {
+      transform: skewX(0);
+    }
+  }
+
+  /*  make animation for the popup cards by using class show  */
+
+  .cards3.show {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: bounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards
+  }
+  @keyframes bounce {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    25% {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+    75% {
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+
+
+  /*  media query  */
+
+
+  @media only screen and (max-width: 550px) {
+    /* adjust styles for screens smaller than 768px */
+    main {
+        align-items: center;
+        flex-direction: column ;
+        margin:-30px 20px 20px 20px;
+      }
+    .repostry,
+    .testing {
+      max-width: 90%;
+    }
+    .cards3{
+        width: 95%;
+        height: 90%;
+    }
+    .cards3 .img{
+        width: 30%;
+        height: 30%;
+    }
+    .animation-container{
+        width: 300px;
+        height: 50px;
+        margin:0 50px;
+    }
+
+
+  }
+  
+  @media only screen and (max-width: 480px) {
+    /* adjust styles for screens smaller than 480px */
+    .repostry,
+    .testing {
+      max-width: 100%;
+    }
+    main{
+        width: 100%;
+    }
+    .all{
+        width: 90%;
+    }
+  }
